@@ -50,7 +50,7 @@ namespace YchetPer
                 {
                     connection.Open();
                     string query = $@"SELECT Devices.ID, Types.Class, Devices.Title, Devices.Number, Conditions.Condition ,NumberKabs.NumKab ,Devices.StartWork 
-                                      FROM Devices JOIN  Types
+                                      FROM Devices  JOIN  Types
                                       ON Devices.IDType = Types.ID
                                       JOIN  Conditions
                                       ON Devices.IDCondition = Conditions.ID

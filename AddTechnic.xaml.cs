@@ -74,13 +74,13 @@ namespace YchetPer
                     CbCondition.DisplayMemberPath = "Condition";
                     CbCondition.SelectedValuePath = "ID";
                     //----------------------------------------------
-                    CbNumKabn.ItemsSource = dt3.DefaultView;
-                    CbNumKabn.DisplayMemberPath = "NumKab";
-                    CbNumKabn.SelectedValuePath = "ID";
-                    ////----------------------------------------------
-                    CbTitle.ItemsSource = dt4.DefaultView;
-                    CbTitle.DisplayMemberPath = "Title";
-                    CbTitle.SelectedValuePath = "ID";
+                    TbNumKab.ItemsSource = dt3.DefaultView;
+                    TbNumKab.DisplayMemberPath = "NumKab";
+                    TbNumKab.SelectedValuePath = "ID";
+                    //////----------------------------------------------
+                    //CbTitle.ItemsSource = dt4.DefaultView;
+                    //CbTitle.DisplayMemberPath = "Title";
+                    //CbTitle.SelectedValuePath = "ID";
                 }
                 catch (Exception ex)
                 {
@@ -96,19 +96,22 @@ namespace YchetPer
         {
             using (SQLiteConnection connection = new SQLiteConnection(DBConnection.myConn))
             {
+                var name = TbTitle.Text;
+                var numkab = TbNumKab.Text;
+                var number = TbNumber.Text;
                 connection.Open();
-                string query = $@"INSERT INTO Devices(IDType,IDKabuneta,Title,Number,IDCondition) values (@IDType,@IDKabuneta,@Title,@Number,@IDCondition);";
+                string query = $@"INSERT INTO Devices(IDType,IDKabuneta,Title,Number,IDCondition) values (@IDType,@IDKabuneta,'{name}','{number}',@IDCondition);";
                 SQLiteCommand cmd = new SQLiteCommand(query, connection);
                 try
                 {
-                    //cmd.Parameters.AddWithValue("@SN", TbSN.Text);
-                    //cmd.Parameters.AddWithValue("@FN", TbFN.Text);
-                    //cmd.Parameters.AddWithValue("@MN", TbMN.Text);
-                    //cmd.Parameters.AddWithValue("@Date", DpB.Text);
-                    //cmd.Parameters.AddWithValue("@Phone", TbPhone.Text);
+                    cmd.Parameters.AddWithValue("@IDType", "ID");
+                    cmd.Parameters.AddWithValue("@IDKabuneta", "ID");
+                //    cmd.Parameters.AddWithValue("@Title", TbTitle.Text);
+                //    cmd.Parameters.AddWithValue("@Number", TbNumber.Text);
+                    cmd.Parameters.AddWithValue("@IDCondition", "ID");
                     //cmd.Parameters.AddWithValue("@Post", );
                     //cmd.Parameters.AddWithValue("@Stat", );
-                    //cmd.ExecuteNonQuery();
+                    cmd.ExecuteNonQuery();
                     this.Close();
                 }
                 catch (SQLiteException ex)

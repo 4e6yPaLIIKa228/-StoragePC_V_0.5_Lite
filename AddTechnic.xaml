@@ -14,14 +14,12 @@
         <Label Content="Состояние" HorizontalAlignment="Left" Margin="93,167,0,0" VerticalAlignment="Top" Width="83" HorizontalContentAlignment="Right"/>
         <!--<Label Content="Должность" HorizontalAlignment="Left" Margin="100,197,0,0" VerticalAlignment="Top" Width="76" HorizontalContentAlignment="Right"/>-->
         <Label Content="Статус" HorizontalAlignment="Left" Margin="100,227,0,0" VerticalAlignment="Top" Width="76" HorizontalContentAlignment="Right" />
-        <TextBox x:Name="TbTitle" HorizontalAlignment="Left" Height="22" Margin="204,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" />
+        <TextBox x:Name="TbTitle" HorizontalAlignment="Left" Height="22" Margin="204,77,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" VerticalContentAlignment="Center" />
         <DatePicker x:Name="StartWork" HorizontalAlignment="Left" Margin="204,227,0,0" VerticalAlignment="Top" Width="219" Height="22"/>
         <ComboBox x:Name="CbCondition" HorizontalAlignment="Left" Margin="204,167,0,0" VerticalAlignment="Top" Width="219" Height="22"/>
         <Button x:Name="BtnAdd" Content="Добавить" HorizontalAlignment="Left" Height="38" Margin="321,283,0,0" VerticalAlignment="Top" Width="102" Click="BtnAdd_Click"/>
         <ComboBox x:Name="CbClass" HorizontalAlignment="Left" Margin="204,47,0,0" VerticalAlignment="Top" Width="219" Height="22"/>
-        <ComboBox x:Name="CbTitle" HorizontalAlignment="Left" Margin="324,77,0,0" VerticalAlignment="Top" Width="99" Height="22"/>
-        <TextBox x:Name="TbNumKab" HorizontalAlignment="Left" Height="22" Margin="204,107,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="120" VerticalContentAlignment="Center" />
-        <ComboBox x:Name="CbNumKabn" HorizontalAlignment="Left" Margin="324,107,0,0" VerticalAlignment="Top" Width="99" Height="22"/>
+        <ComboBox x:Name="TbNumKab" HorizontalAlignment="Left" Height="22" Margin="204,107,0,0"  VerticalAlignment="Top" Width="219" VerticalContentAlignment="Center" />
         <TextBox x:Name="TbNumber" HorizontalAlignment="Left" Margin="204,137,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="219" Height="22" VerticalContentAlignment="Center"/>
         <Button x:Name="BtnBack" Content="Назад" HorizontalAlignment="Left" Height="38" Margin="52,283,0,0" VerticalAlignment="Top" Width="102" Click="BtnBack_Click"/>
     </Grid>
