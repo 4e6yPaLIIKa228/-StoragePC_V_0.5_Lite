@@ -96,24 +96,33 @@ namespace YchetPer
         {
             using (SQLiteConnection connection = new SQLiteConnection(DBConnection.myConn))
             {
+                int id,id2,id3;
+                bool resultClass = int.TryParse(CbClass.SelectedValue.ToString(), out id);
+                bool resultKab = int.TryParse(TbNumKab.SelectedValue.ToString(), out id2);
+                bool resultCon = int.TryParse(CbCondition.SelectedValue.ToString(), out id3);
                 var name = TbTitle.Text;
-                var numkab = TbNumKab.Text;
+                var numkab = TbNumber.Text;
                 var number = TbNumber.Text;
+                var idtype = CbClass.Text;
+                var idkab = TbNumKab.SelectedValuePath = " ";
+                var idcon = CbCondition.Text;
                 connection.Open();
-                string query = $@"INSERT INTO Devices(IDType,IDKabuneta,Title,Number,IDCondition) values (@IDType,@IDKabuneta,'{name}','{number}',@IDCondition);";
+                string query = $@"INSERT INTO Devices(IDType,IDKabuneta,Title,Number,IDCondition) values ('{id}',{id2},'{name}','{number}','{id3}');";
                 SQLiteCommand cmd = new SQLiteCommand(query, connection);
                 try
                 {
-                    cmd.Parameters.AddWithValue("@IDType", "ID");
-                    cmd.Parameters.AddWithValue("@IDKabuneta", "ID");
+                   // cmd.Parameters.AddWithValue("@IDType","ID");
+                    //cmd.Parameters.AddWithValue("@IDKabuneta", "ID");
                 //    cmd.Parameters.AddWithValue("@Title", TbTitle.Text);
                 //    cmd.Parameters.AddWithValue("@Number", TbNumber.Text);
-                    cmd.Parameters.AddWithValue("@IDCondition", "ID");
+                   // cmd.Parameters.AddWithValue("@IDCondition", "ID");
                     //cmd.Parameters.AddWithValue("@Post", );
                     //cmd.Parameters.AddWithValue("@Stat", );
-                    cmd.ExecuteNonQuery();
+                   cmd.ExecuteNonQuery();
+                    MessageBox.Show("+");
                     this.Close();
                 }
+
                 catch (SQLiteException ex)
                 {
                     MessageBox.Show("Error: " + ex.Message);
